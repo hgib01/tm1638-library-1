@@ -40,9 +40,15 @@ class TM1638QYF : public TM16XX
     /** Set the display to a unsigned decimal number (with or without leading zeros) */
     void setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros = true,
 		const byte numberFont[] = FONT_DEFAULT);
+    /** Set the display to a right-aligned (like a calculator) unsigned decimal number (with or without leading zeros) */    
+    void setDisplayToRDecNumber(unsigned long number, byte dots, boolean leadingZeros = false,
+            const byte numberFont[] = FONT_DEFAULT);
     /** Set the display to a signed decimal number (with or without leading zeros) */
     void setDisplayToSignedDecNumber(signed long number, byte dots, boolean leadingZeros = true,
 		const byte numberFont[] = FONT_DEFAULT);
+    /** Set the display to a right-aligned (like a calculator) signed decimal number (with or without leading zeros) */    
+    void setDisplayToRSignedDecNumber(signed long number, byte dots, boolean leadingZeros = false,
+        const byte numberFont[] = FONT_DEFAULT);
     /** Set the display to a unsigned binary number */
     void setDisplayToBinNumber(byte number, byte dots,
 		const byte numberFont[] = NUMBER_FONT);

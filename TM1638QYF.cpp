@@ -116,8 +116,19 @@ void TM1638QYF::setDisplayToDecNumber(unsigned long number, byte dots, boolean l
 
 	snprintf(values, displays + 1, leadingZeros ? "%08ld" : "%ld", number); // ignores display size
 
-	Serial.println(values);
+	//Serial.println(values);
 	
+	setDisplayToString(values, dots, 0, numberFont);
+}
+
+
+void TM1638QYF::setDisplayToRDecNumber(unsigned long number, byte dots, boolean leadingZeros,
+	const byte numberFont[])
+{
+	char values[displays + 1];
+
+	snprintf(values, displays + 1, leadingZeros ? "%08ld" : "%8ld", number); // ignores display size
+
 	setDisplayToString(values, dots, 0, numberFont);
 }
 
@@ -130,6 +141,17 @@ void TM1638QYF::setDisplayToSignedDecNumber(signed long number, byte dots, boole
 
 	setDisplayToString(values, dots, 0, numberFont);
 }
+
+void TM1638QYF::setDisplayToRSignedDecNumber(signed long number, byte dots, boolean leadingZeros,
+		const byte numberFont[])
+{
+	char values[displays + 1];
+
+	snprintf(values, displays + 1, leadingZeros ? "%08d" : "%8d", number); // ignores display size
+
+	setDisplayToString(values, dots, 0, numberFont);
+}
+
 
 word TM1638QYF::getButtons(void)
 {
